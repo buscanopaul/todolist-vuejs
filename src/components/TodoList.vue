@@ -9,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="todo in allTodos" :key="todo.id">
+                <tr v-for="todo in allTTodos" :key="todo.id">
                     <TodoItem :todo="todo" />
                 </tr>
             </tbody>
@@ -27,7 +27,7 @@ export default {
         TodoItem
     },
     computed: {
-        ...mapGetters(['allTodos'])
+        ...mapGetters(['allTTodos', 'completed'])
     }
 };
 </script>

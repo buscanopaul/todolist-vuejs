@@ -24,7 +24,8 @@ export default {
         addTodoI() {
             this.addTodo({
                 id: v1(),
-                title: this.todoText
+                title: this.todoText,
+                complete: false
             });
             this.todoText = "";
         }

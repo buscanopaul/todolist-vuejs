@@ -1,6 +1,7 @@
 <template>
     <div id="app" class="container">
       <TodoInput />
+      <TodoStatus />
       <TodoList />
     </div>
 </template>
@@ -9,17 +10,18 @@
 
 import TodoInput from '@/components/TodoInput';
 import TodoList from '@/components/TodoList';
+import TodoStatus from '@/components/TodoStatus';
 
 export default {
   name: 'App', 
   components: {
     TodoInput,
     TodoList,
+    TodoStatus
   }
 }
 </script>
 
-    TodoInput
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

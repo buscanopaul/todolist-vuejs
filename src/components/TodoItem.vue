@@ -1,7 +1,19 @@
 <template>
-      <th scope="row">1</th>
-      <td>{{todo.title}}</td>
-      <td><button class="btn btn-warning">Edit</button> <button @click="deleteTodo(todo.id)" class="btn btn-danger">Delete</button></td>
+    <th scope="row">1</th>
+    <td>
+        <h5 v-if="!editing">{{todo.title}}</h5>
+        <div v-else class="row">
+            <div class="change">
+                <input v-bind:value="todoText" @change="todoTextChange" type="text" class="col form-control" />
+            </div>
+           
+            <div class="complete">
+                <input :check="completed" class="col" @change="onCompleted" type="checkbox" />
+                <label>Completed</label>
+            </div> 
+        </div>
+    </td>
+    <td><button @click="updateTodoI(todo)" class="btn btn-warning">{{editing ? 'Update' : 'Edit'}}</button> <button @click="deleteTodo(todo.id)" class="btn btn-danger">Delete</button></td>
 </template>
 
 <script>
@@ -12,8 +24,32 @@ export default {
         todo: {
         }
     },
+    data() {
+        return {
+            todoText: '',
+            editing: false,
+            completed: false
+        }
+    },
     methods: {
-        ...mapActions(['deleteTodo'])
+        ...mapActions(['deleteTodo', 'updateTodo', 'changeCompleted']),
+        onCompleted() {
+            this.completed = this.completed == true ? false : true;
+        },
+        todoTextChange(e) {
+            this.todoText = e.target.value;
+        },
+        updateTodoI(todo) {
+            this.editing = this.editing == true ? false : true;
+            if(this.editing) {
+                this.todoText = todo.title;
+                this.updateTodo(todo);
+            } else {
+                todo.title = this.todoText;
+                todo.complete = this.completed;
+                this.changeCompleted();
+            }
+        }
     }
 };
 </script>
