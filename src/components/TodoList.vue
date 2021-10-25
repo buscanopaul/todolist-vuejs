@@ -9,9 +9,9 @@
                 </tr>
             </thead>
             <tbody>
-                <TodoItem />
-                <TodoItem />
-                <TodoItem />
+                <tr v-for="todo in allTodos" :key="todo.id">
+                    <TodoItem :todo="todo" />
+                </tr>
             </tbody>
         </table>
     </div>
@@ -20,10 +20,14 @@
 <script>
 
 import TodoItem from '@/components/TodoItem';
+import { mapGetters } from 'vuex';
 
 export default {
     components: {
         TodoItem
+    },
+    computed: {
+        ...mapGetters(['allTodos'])
     }
 };
 </script>
