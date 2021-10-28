@@ -1,5 +1,6 @@
 <template>
     <div id="app" class="container">
+      <h2>Todo App</h2>
       <TodoInput />
       <TodoStatus />
       <TodoList />

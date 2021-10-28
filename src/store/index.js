@@ -4,18 +4,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     completed: true,
-    ttodos: [
-      {
-        id: 1,
-        title: "One",
-        complete: true,
-      },
-      {
-        id: 2,
-        title: "Two",
-        complete: true,
-      },
-    ],
+    ttodos: [],
     todos: [
     {
       id: 1,

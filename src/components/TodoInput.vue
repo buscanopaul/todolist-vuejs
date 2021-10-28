@@ -1,7 +1,7 @@
 <template>
     <div class="row">
-        <input @change="todoTextChange" v-bind:value="todoText" class="col form-control mx-2" type="text" />
-        <button @click="addTodoI" class="btn btn-primary">Add </button>
+        <input @change="todoTextChange" v-bind:value="todoText" class="mw-80 col form-control mx-2" type="text" />
+        <button @click="addTodoI" class="mw-20 btn btn-primary">Add </button>
     </div>
 </template>
 
@@ -34,5 +34,10 @@ export default {
 </script>
 
 <style scoped>
-
+.mw-80 {
+    max-width: 80%;
+}
+.mw-20 {
+    max-width: 20%;
+}
 </style>

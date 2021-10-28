@@ -1,7 +1,6 @@
 <template>
-    <th scope="row">1</th>
     <td>
-        <h5 v-if="!editing">{{todo.title}}</h5>
+        <h5 v-if="!editing" :class="{ 'line-through': todo.complete == true }">{{todo.title}}</h5>
         <div v-else class="row">
             <div class="change">
                 <input v-bind:value="todoText" @change="todoTextChange" type="text" class="col form-control" />
@@ -13,6 +12,7 @@
             </div> 
         </div>
     </td>
+    <td><h5 v-if="!editing" :class="{ 'line-through': todo.complete == true }">{{todo.complete == true ? 'Completed' : 'To-do'}}</h5></td>
     <td><button @click="updateTodoI(todo)" class="btn btn-warning">{{editing ? 'Update' : 'Edit'}}</button> <button @click="deleteTodo(todo.id)" class="btn btn-danger">Delete</button></td>
 </template>
 
@@ -55,5 +55,7 @@ export default {
 </script>
 
 <style scoped>
-
+.line-through {
+  text-decoration: line-through;
+}
 </style>
