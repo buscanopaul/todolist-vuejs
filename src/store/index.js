@@ -1,9 +1,21 @@
 import { createStore } from 'vuex'
 
+// Default data of todo when refresh
 export default createStore({
   state: {
     completed: true,
-    ttodos: [],
+    ttodos: [
+      {
+        id: 1,
+        title: "One",
+        complete: true,
+      },
+      {
+        id: 2,
+        title: "Two",
+        complete: true,
+      },
+    ],
     todos: [
     {
       id: 1,
@@ -59,6 +71,7 @@ export default createStore({
   },
   modules: {
   },
+  // State that accessible globally
   getters: {
     allTTodos: (state) => state.ttodos,
     allTodos: (state) => state.todos,
